@@ -1,7 +1,7 @@
 <%- include('../partials/header.ejs'); %>
 
 
-<!-- Content for the Add page -->
+<!-- Content for the Edit page -->
 <div class="container">
     <div class="row">
         <div class="offset-md-3 col-md-6">
@@ -31,9 +31,11 @@
                 <div class="form-group">
                     <label for="publishedTextField">Genre</label>
                     <input type="text" class="form-control"
-                    id="genreTextField"
+                    id="publishedTextField"
                     placeholder="Enter the Genre"
-                    name="genre" required>
+                    name="published" 
+                    value="<%= book.Genre %>"
+                    required>
                 </div>
 
                 <div class="form-group">
@@ -42,8 +44,9 @@
                     id="descriptionTextArea"
                     placeholder="Enter the a brief description of the book"
                     name="description" 
+                    value="<%= book.Description %>"
                     required>
-                    <%= book.Description %>
+        
                     </textarea>
                 </div>
 
@@ -53,7 +56,7 @@
                     id="priceTextField"
                     placeholder="Enter the Book's Price"
                     name="price" 
-                    value="<%= books.Price %>"
+                    value="<%= book.Price %>"
                     required>
                 </div>
 
@@ -68,7 +71,6 @@
 
     </div>
 </div>
-
 
 
 <%- include('../partials/footer.ejs'); %>

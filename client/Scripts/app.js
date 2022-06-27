@@ -1,29 +1,24 @@
-//IIFE -- Immediately Invoked Function Expression
-"use strict";
-
+// IIFE -- Immediately Invoked Function Expression
 (function(){
 
-    function confirmDelete()
-    {
-      // confirm deletion
-      $("a.delete").on("click", function(event){
-        if(!confirm("Are you sure?"))
-        {
-          event.preventDefault();
-          location.href = '/books';
-        }       
-      });
-    }
+  function Start()
+  {
+      console.log("App Started...");
 
-    function Start()
-    {
-        console.log("App Started");
-        
-        confirmDelete();  
-    }
+      let deleteButtons = document.querySelectorAll('.btn-danger');
+      
+      for(button of deleteButtons)
+      {
+          button.addEventListener('click', (event)=>{
+              if(!confirm("Are you sure?")) 
+              {
+                  event.preventDefault();
+                  window.location.assign('/books');
+              }
+          });
+      }
+  }
 
-    window.addEventListener("load", Start);
+  window.addEventListener("load", Start);
 
 })();
-
-

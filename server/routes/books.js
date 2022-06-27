@@ -60,9 +60,26 @@ router.post('/add', (req, res, next) => {
   });
 });
 
+//GET route for displaying the edit page
+router.get('/edit/:id', (req, res, next) => {
+let id = req.params.id;
 
-// GET the Book Details page in order to edit an existing Book
-router.get('/:id', (req, res, next) => {
+    Book.findById(id, (err, bookToEdit) => {
+        if(err)
+        {
+            console.log(err);
+            res.end(err);
+        }
+        else
+        {
+            //show the edit view
+            res.render('books/edit', {title: 'Edit Book', book: bookToEdit})
+        }
+    });
+  });  
+
+// POST the Book Details page in order to edit an existing Book
+router.post('/edit/:id', (req, res, next) => {
   let id = req.params.id
 
   let updatedBook = Book({
